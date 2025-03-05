@@ -4,11 +4,11 @@ Documentation    Test suite to verify a new users registration.
 ...              "administrator" users, displaying a success message when 
 ...              submit the registration.
 
-Resource         ../../../resources/common.resource
+Resource         ../../../resources/e2e_common.resource
 
 Test Setup       Start Session
 Test Teardown    Close Session
-Test Template    Create Common And Admin users
+Test Template    Create Common And Admin User
 
 *** Variables ***
 ${ENDPOINT}         cadastrarusuarios
@@ -18,17 +18,18 @@ Create A New Common User    False
 Create A New Admin User     True
 
 *** Keywords ***
-Create Common And Admin users
+Create Common And Admin User
     [Arguments]    ${is_admin}
     
-    ${dynamic_data}    Generate Dynamic Data
-    ${name}            Set Variable    ${dynamic_data}[name]
-    ${email}           Set Variable    ${dynamic_data}[email]
+    ${data}        Generate User Data
+    ${name}        Set Variable    ${data}[name]
+    ${email}       Set Variable    ${data}[email]
+    ${password}    Set Variable    ${data}[password]
     
     Navigate To             ${ENDPOINT}
     Input Name              ${name}
     Input Email             ${email}
-    Input User Password     ${USER_PASSWORD}
+    Input User Password     ${password}
     Select User As Admin    ${is_admin}
     Submit Registration
     Alert Success Should Be Displayed

@@ -1,17 +1,16 @@
 *** Settings ***
-Documentation    This file contains common variables and keywords that are used across all test cases.
+Documentation    This file contains E2E common variables and keywords that are used across all test cases.
 
 Library      SeleniumLibrary
 Library      FakerLibrary
 Library      JSONLibrary
 
-Resource     ../resources/signup.resource
+Resource     ../resources/e2e/signup.resource
 
 Variables    ../helpers/locators/locators.py
 
 *** Variables ***
 ${BASE_URL}         https://front.serverest.dev
-${USER_PASSWORD}    password2025
 
 *** Keywords ***
 Start Session
@@ -25,19 +24,24 @@ Navigate To
     Go To              ${BASE_URL}/${endpoint}
     Title Should Be    Front - ServeRest 
 
-Generate Dynamic Data
-    ${random_name}      FakerLibrary.Name
-    ${format_name}      Evaluate        '${random_name}'.lower().replace(' ', '')
-    ${random_number}    Evaluate        random.randint(1000, 9999)    random
-    ${random_email}     Set Variable    ${format_name}${random_number}@teste.com
+Generate User Data
+    ${name}            FakerLibrary.Name
+    ${format_name}     Evaluate        '${name}'.lower().replace(' ', '')
+    ${number}          Evaluate        random.randint(1000, 9999)    random
+    ${random_email}    Set Variable    ${format_name}${number}@teste.com
+    ${password}        FakerLibrary.Password
 
-    ${dynamic_data}    Create Dictionary    name=${random_name}    email=${random_email}
-    RETURN    ${dynamic_data}
+    ${data}            Create Dictionary    
+    ...                name=${name}    
+    ...                email=${random_email}
+    ...                password=${password}
+    RETURN             ${data}
 
 Get Fixture
     [Arguments]    ${path}    ${fixture_name}    ${field}
     ${data}        Load JSON From File    
-    ...            ${EXECDIR}/helpers/fixtures/${path}/${fixture_name}.json    encoding=UTF-8
+    ...            ${EXECDIR}/helpers/fixtures/${path}/${fixture_name}.json
+    ...            encoding=UTF-8
     RETURN         ${data}[${field}]
 
 Check Element State
