@@ -1,0 +1,7 @@
+{
+    "messages": {
+        "name": "Nome é obrigatório",
+        "email": "Email é obrigatório",
+        "password": "Password é obrigatório"
+    }
+}

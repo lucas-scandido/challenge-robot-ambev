@@ -25,11 +25,41 @@ cd challenge-robot-ambev
 
 # Documentations
 - **Documentation of the Application ServeRest:**
-As it is an application for testing purposes, it does not have any specific documentation.
-
+1. [API ServeRest](https://serverest.dev/)
+2. [GitHub ServeRest](https://github.com/ServeRest/ServeRest)
 - **Robot Documentation:**
 1. [Robot Framework](https://docs.robotframework.org/)
 2. [Selenium Library](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html)
 
 # Project Structure
-The project structure was developed based on documentation: [Robot Framework - Project Structure](https://docs.robotframework.org/docs/examples/project_structure). 
+The project structure was developed based on documentation: [Robot Framework - Project Structure](https://docs.robotframework.org/docs/examples/project_structure).
+
+- **Folder Structure:**
+```
+├── helpers/                            # Helpers needed to run the tests, including fixtures and locators    
+    └── fixtures/                       # Static data files used during test execution                                    
+        └── signup/                     # Signup Fixtures    
+            └── alerts.json             # JSON file that stores all error messages from the user registration                      
+    └── locators/                       # Locators used to interact with page elements                                  
+        └── locators.py                 # Python file containing the mapped locators   
+├── resources/                          # Reusable keywords
+    └── common.resource                 # Common Keywords 
+    └── signup.resource                 # Signup Keywords                                                                  
+├── tests/                              # Test Suites
+    └── e2e/                            # End-to-end Test Suite
+        └── signup/                     # Signup Suite
+            └── invalid_login.robot     # Test Suite for Invalid Signup 
+            └── login.robot             # Test Suite for Valid Signup                            
+├── README.md                           # Project documentation      
+├── .gitignore                          # Files and folders should be ignored by Git       
+├── requirements.txt                    # List of dependencies needed to run the project                              
+```
+
+# Test Execution Scripts
+
+- **Running E2E Tests:** 
+```
+robot -d ./logs tests/e2e/                           # Running all the E2E tests
+robot -d ./logs tests/e2e/<folder>                   # Running a specific E2E test folder
+robot -d ./logs tests/e2e/<folder>/<file>.robot      # Running a specific E2E test file
+```

@@ -1,2 +1,4 @@
 robotframework==7.2
+robotframework-faker==5.0.0
+robotframework-jsonlibrary==0.5
 robotframework-seleniumlibrary==6.7.0
