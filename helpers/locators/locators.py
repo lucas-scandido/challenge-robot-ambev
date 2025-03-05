@@ -1,0 +1,9 @@
+INPUT_NAME = 'css:[data-testid="nome"]'
+INPUT_EMAIL = 'css:[data-testid="email"]'
+INPUT_PASSWORD = 'css:[data-testid="password"]'
+SIGNUP_BUTTON = 'css:[data-testid="cadastrar"]'
+ADMIN_CHECKBOX = 'css:[data-testid="checkbox"]'
+CHECKBOX_TEXT = 'css:label[for="administrador"]'
+ALERT = "css:.alert"
+SUCCESS_MESSAGE = 'css:a.alert-link'
+ERROR_MESSAGES = '//span[text()="{}"]'
