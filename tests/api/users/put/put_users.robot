@@ -21,4 +21,4 @@ Update Common And Admin User
     ${body}             Generate User Data    ${is_admin}
     ${message}          Get fixture    users    response    success
     Send PUT Request    ${USERS}/${POST_RESPONSE}[_id]      ${body}    200
-    Response Should Contain Message    ${PUT_RESPONSE}      message     ${message}[successUpdate]
+    Response Should Contain Message    ${PUT_RESPONSE}      message    ${message}[successUpdate]

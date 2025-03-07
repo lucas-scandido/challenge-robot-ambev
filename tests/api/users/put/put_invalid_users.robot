@@ -30,5 +30,5 @@ Update User With Invalid Data
     [Arguments]    ${name}    ${email}    ${password}    ${is_admin}    ${field}    ${expected_message}
     ${body}        Update User Data    ${name}      ${email}    ${password}    ${is_admin}
     ${message}     Get fixture    users    response    errors
-    Send PUT Request    ${USERS}/${POST_RESPONSE}[_id]    ${body}        400
+    Send PUT Request    ${USERS}/${POST_RESPONSE}[_id]    ${body}     400
     Response Should Contain Message    ${PUT_RESPONSE}    ${field}    ${message}[${expected_message}]

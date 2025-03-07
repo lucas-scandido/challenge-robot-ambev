@@ -26,7 +26,7 @@ Invalid Administrator As A Number    ${USER_NAME}       ${USER_EMAIL}       ${US
 *** Keywords ***
 Create User With Invalid Data
     [Arguments]    ${name}    ${email}    ${password}    ${is_admin}    ${field}    ${expected_message}
-    ${body}        Update User Data    ${name}      ${email}    ${password}    ${is_admin}
+    ${body}        Update User Data    ${name}    ${email}    ${password}    ${is_admin}
     ${message}     Get fixture    users    response    errors
     Send POST Request    ${USERS}     ${body}        400
     Response Should Contain Message    ${POST_RESPONSE}    ${field}    ${message}[${expected_message}]

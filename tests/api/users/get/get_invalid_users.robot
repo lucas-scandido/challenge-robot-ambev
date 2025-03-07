@@ -12,7 +12,7 @@ Test Teardown     Delete Users
 Suite Teardown    Close Api Session
 Test Template     Search Users With Invalid Data
 
-*** Test Cases ***                   KEY              VALUE               FIELD             MESSAGE 
+*** Test Cases ***                   KEY              VALUE               FIELD            MESSAGE 
 Empty Email                          email            ${EMPTY}            email            emailShouldBeString           
 Invalid Email                        email            ${INVALID_EMAIL}    email            invalidEmail         
 Invalid Email As A Number            email            ${INVALID_DATA}     email            emailShouldBeString           

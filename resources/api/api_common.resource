@@ -2,10 +2,10 @@
 Documentation    This file contains API common variables and keywords that are 
 ...              used across all the API test cases.
 
-Library      RequestsLibrary
+Library     RequestsLibrary
 
-Resource     ../../resources/e2e/e2e_common.resource
-Resource     ../../resources/api/users/users.resource
+Resource    ../../resources/e2e/e2e_common.resource
+Resource    ../../resources/api/users/users.resource
 
 *** Variables ***
 ${API_URL}          https://serverest.dev

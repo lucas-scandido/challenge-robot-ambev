@@ -3,3 +3,4 @@ robotframework-faker==5.0.0
 robotframework-jsonlibrary==0.5
 robotframework-requests==0.9.7
 robotframework-seleniumlibrary==6.7.0
+setuptools>=58.0.0
