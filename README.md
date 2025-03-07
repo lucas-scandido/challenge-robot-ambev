@@ -1,5 +1,5 @@
 # ServeRest - Automated Tests
-E2E Test Automation Project for the application **[ServeRest](https://serverest.dev/)** using **Robot Framework** with **Selenium Library**.
+Test Automation Project for the application **[ServeRest](https://serverest.dev/)** using **Robot Framework** with **Selenium Library**.
 
 # Prerequisites
 1. **[Python](https://www.python.org/downloads/)** version: `>=3.13.1`.
@@ -36,6 +36,9 @@ The project structure was developed based on documentation: [Robot Framework - P
 
 - **Folder Structure:**
 ```
+├── .github/                                            # GitHub specific configurations, such as workflows and other GitHub Actions.   
+    └── workflows                                       # CI Workflows Folder                                     
+        └── ci.yml/                                     # Continuous integration configuration file
 ├── helpers/                                            # Helpers needed to run the tests, including fixtures and locators    
     └── fixtures/                                       # Static data files used during test execution                                    
         └── signup/                                     # Signup Fixtures    
@@ -44,7 +47,7 @@ The project structure was developed based on documentation: [Robot Framework - P
             └── response.json                           # JSON file that stores all response messages returned from the user API                                    
     └── locators/                                       # Locators used to interact with page elements                                  
         └── locators.py                                 # Python file containing the mapped locators   
-├── resources/                                          # Reusable keywords
+├── resources/                                          # Reusable Keywords
     └── api/                                            # API Keywords
         └── users/                                      # API Users Folder
             └── users.resource                          # API Users Keywords
