@@ -3,7 +3,8 @@ name: Robot Framework Tests
 on: push
 
 jobs:
-  build:
+  api_tests:
+    name: API Test
     runs-on: ubuntu-latest
 
     steps:
@@ -17,3 +18,12 @@ jobs:
 
       - name: Install Dependencies
         run: pip install -r requirements.txt
+
+      - name: Run API Tests
+        run: robot -d results/api tests/api
+
+      - name: Upload API Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-results
+          path: results/api
