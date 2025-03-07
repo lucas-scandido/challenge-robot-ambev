@@ -11,6 +11,7 @@ Resource     ../../resources/e2e/signup/signup.resource
 Variables    ../../helpers/locators/locators.py
 
 *** Variables ***
+${OPTIONS}          ${None}
 ${BASE_URL}         https://front.serverest.dev
 ${USER_NAME}        Lucas Candido
 ${USER_EMAIL}       beltrano@qa.com.br
@@ -18,7 +19,7 @@ ${USER_PASSWORD}    password2025
 
 *** Keywords ***
 Start Session
-    Open Browser    browser=chrome
+    Open Browser    browser=chrome    options=${OPTIONS}    
 
 Close Session
     Close Browser
