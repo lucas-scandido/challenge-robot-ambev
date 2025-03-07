@@ -24,7 +24,7 @@ cd challenge-robot-ambev
 - To facilitate installation, simply run the command `pip install -r requirements.txt`, which will install all libraries at once.
 
 # Documentations
-- **Documentation of the Application ServeRest:**
+- **ServeRest Documentation:**
 1. [API ServeRest](https://serverest.dev/)
 2. [GitHub ServeRest](https://github.com/ServeRest/ServeRest)
 - **Robot Documentation:**
@@ -36,30 +36,59 @@ The project structure was developed based on documentation: [Robot Framework - P
 
 - **Folder Structure:**
 ```
-├── helpers/                            # Helpers needed to run the tests, including fixtures and locators    
-    └── fixtures/                       # Static data files used during test execution                                    
-        └── signup/                     # Signup Fixtures    
-            └── alerts.json             # JSON file that stores all error messages from the user registration                      
-    └── locators/                       # Locators used to interact with page elements                                  
-        └── locators.py                 # Python file containing the mapped locators   
-├── resources/                          # Reusable keywords
-    └── common.resource                 # Common Keywords 
-    └── signup.resource                 # Signup Keywords                                                                  
-├── tests/                              # Test Suites
-    └── e2e/                            # End-to-end Test Suite
-        └── signup/                     # Signup Suite
-            └── invalid_login.robot     # Test Suite for Invalid Signup 
-            └── login.robot             # Test Suite for Valid Signup                            
-├── README.md                           # Project documentation      
-├── .gitignore                          # Files and folders should be ignored by Git       
-├── requirements.txt                    # List of dependencies needed to run the project                              
+├── helpers/                                            # Helpers needed to run the tests, including fixtures and locators    
+    └── fixtures/                                       # Static data files used during test execution                                    
+        └── signup/                                     # Signup Fixtures    
+            └── alerts.json                             # JSON file that stores all error messages from the user registration 
+        └── users/                                      # Users Fixtures    
+            └── response.json                           # JSON file that stores all response messages returned from the user API                                    
+    └── locators/                                       # Locators used to interact with page elements                                  
+        └── locators.py                                 # Python file containing the mapped locators   
+├── resources/                                          # Reusable keywords
+    └── api/                                            # API Keywords
+        └── users/                                      # API Users Folder
+            └── users.resource                          # API Users Keywords
+        └── api_common.resource                         # Common API Keywords                 
+    └── e2e/                                            # E2E Keywords
+        └── signup/                                     # Signup Folder
+            └── signup.resource                         # Signup Keywords
+        └── e2e_common.resource                         # Common E2E Keywords                                                                  
+├── tests/                                              # Test Suites
+    └── api/                                            # API Test Suite
+        └── users/                                      # API Users Suite
+            └── delete/                                 # API Users - DELETE Suite
+                └── delete_invalid_users.robot          # Test Suite for Delete User With Invalid Data 
+                └── delete_users.robot                  # Test Suite for Delete Users 
+            └── get/                                    # API Users - GET Suite
+                └── get_invalid_users.robot             # Test Suite for Search User With Invalid Data 
+                └── get_users.robot                     # Test Suite for Search Users 
+            └── post/                                   # API Users - POST Suite
+                └── post_invalid_users.robot            # Test Suite for Create User With Invalid Data
+                └── post_users.robot                    # Test Suite for Create Users
+            └── put/                                    # API Users - PUT Suite
+                └── put_invalid_users.robot             # Test Suite for Update User With Invalid Data
+                └── put_users.robot                     # Test Suite for Update User
+    └── e2e/                                            # End-to-end Test Suite
+        └── signup/                                     # Signup Suite
+            └── invalid_login.robot                     # Test Suite for Invalid Signup 
+            └── login.robot                             # Test Suite for Valid Signup                            
+├── .gitignore                                          # Files and folders should be ignored by Git  
+├── README.md                                           # Project documentation      
+├── requirements.txt                                    # List of dependencies needed to run the project                              
 ```
 
 # Test Execution Scripts
 
-- **Running E2E Tests:** 
+- **Run E2E Tests:** 
 ```
-robot -d ./logs tests/e2e/                           # Running all the E2E tests
-robot -d ./logs tests/e2e/<folder>                   # Running a specific E2E test folder
-robot -d ./logs tests/e2e/<folder>/<file>.robot      # Running a specific E2E test file
+robot -d ./logs tests/e2e/                                  # Run all the E2E tests
+robot -d ./logs tests/e2e/<folder>                          # Run all the tests of a specific E2E folder
+robot -d ./logs tests/e2e/<folder>/<file>.robot             # Run a specific E2E test file
+```
+
+- **Run API Tests:** 
+```
+robot -d ./logs tests/api/                                  # Run all the API tests
+robot -d ./logs tests/api/<folder>                          # Run all the tests of a specific API folder
+robot -d ./logs tests/api/<folder>/<folder>/<file>.robot    # Run a specific API test file
 ```
