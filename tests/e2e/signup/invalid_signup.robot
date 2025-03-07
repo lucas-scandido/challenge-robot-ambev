@@ -21,12 +21,12 @@ Empty Password        ${USER_NAME}    ${USER_EMAIL}    ${EMPTY}            passw
 
 *** Keywords ***
 Invalid And Empty Registration
-    [Arguments]    ${name}     ${email}    ${password}    ${expected_errors}
-    ${alerts}    Get fixture    signup    alerts    messages
-    Navigate To                ${ENDPOINT}
-    Input Name                 ${name}
-    Input Email                ${email}
-    Input User Password        ${password}
-    Select User As Admin       False
+    [Arguments]    ${name}      ${email}     ${password}    ${expected_errors}
+    ${alerts}    Get fixture    signup       alerts    messages
+    Navigate To                 ${ENDPOINT}
+    Input Name                  ${name}
+    Input Email                 ${email}
+    Input User Password         ${password}
+    Select User As Admin        False
     Submit Registration
-    Alert Error Should Be      ${alerts}    ${expected_errors}
+    Alert Error Should Be       ${alerts}    ${expected_errors}

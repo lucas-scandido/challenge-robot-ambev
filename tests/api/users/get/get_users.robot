@@ -26,6 +26,6 @@ Search Admin User          administrador    true
 *** Keywords ***
 Search Users
     [Arguments]    ${key}    ${value}
-    ${params}      Create Dictionary    ${key}=${value}
+    ${params}      Create Dictionary       ${key}=${value}
     Send GET Request    200    ${USERS}    params=${params}
-    Dictionary List Should Contain    ${GET_RESPONSE}   @{EXPECTED_KEYS}
+    Dictionary List Should Contain         ${GET_RESPONSE}   @{EXPECTED_KEYS}

@@ -2,7 +2,7 @@
 Library     SeleniumLibrary
 Library     String
 
-Resource     ../../../resources/e2e/e2e_common.resource
+Resource    ../../../resources/e2e/e2e_common.resource
 
 *** Keywords ***
 Input Name
@@ -34,7 +34,7 @@ Select User As Admin
     END
 
 Submit Registration
-    Button Action                    ${SIGNUP_BUTTON}
+    Button Action    ${SIGNUP_BUTTON}
 
 Alert Success Should Be Displayed
     Wait Until Element Is Visible    ${ALERT}
@@ -45,12 +45,12 @@ Alert Success Should Be Displayed
 
 Alert Error Should Be
     [Arguments]    ${alerts}    ${expected_errors}
-    Wait Until Element Is Visible      ${ALERT}  
+    Wait Until Element Is Visible     ${ALERT}  
     @{errors_list}    Split String    ${expected_errors}    ,
     FOR    ${error}    IN    @{errors_list}
-        ${error}    Strip String    ${error}
-        ${locator}    Set Variable     ${ERROR_MESSAGES.replace('{}', "${alerts}[${error}]")}    
-        Check Element Details          ${locator}    ${alerts}[${error}]
+        ${error}    Strip String      ${error}
+        ${locator}    Set Variable    ${ERROR_MESSAGES.replace('{}', "${alerts}[${error}]")}    
+        Check Element Details    ${locator}    ${alerts}[${error}]
     END
     ${alert_error_color} =    Execute Javascript    
     ...    return window.getComputedStyle(document.querySelector('.alert')).backgroundColor;

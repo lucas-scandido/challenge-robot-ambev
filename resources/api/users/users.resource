@@ -2,7 +2,7 @@
 Library    RequestsLibrary
 Library    Collections
 
-Resource     ../../../resources/api/api_common.resource
+Resource    ../../../resources/api/api_common.resource
 
 *** Variables ***
 ${USERS}    /usuarios
@@ -26,9 +26,9 @@ Delete Users
     Send DELETE Request    ${USERS}/${POST_RESPONSE}[_id]    200
 
 Response Should Contain Message
-    [Arguments]    ${response_type}    ${field}    ${expected_message}
-    Dictionary Should Contain Item    ${response_type}    ${field}    ${expected_message}
-    Should Not Be Empty               ${expected_message}
+    [Arguments]    ${response_type}    ${field}            ${expected_message}
+    Dictionary Should Contain Item     ${response_type}    ${field}    ${expected_message}
+    Should Not Be Empty                ${expected_message}
 
 Dictionary Should Contain
     [Arguments]    ${response}    @{expected_keys}

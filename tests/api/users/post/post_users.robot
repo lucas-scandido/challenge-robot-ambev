@@ -17,9 +17,9 @@ Create A New Admin User     true
 *** Keywords ***
 Create Common And Admin User
     [Arguments]    ${is_admin}
-    ${body}        Generate User Data    ${is_admin}
-    ${messages}    Get fixture    users    response    success
-    Send POST Request    ${USERS}      ${body}         201
-    Dictionary Should Contain Key      ${POST_RESPONSE}     _id
-    Response Should Contain Message    ${POST_RESPONSE}    message         ${messages}[successRegistration]
+    ${body}        Generate User Data      ${is_admin}
+    ${messages}    Get fixture    users    response        success
+    Send POST Request    ${USERS}      ${body}             201
+    Dictionary Should Contain Key      ${POST_RESPONSE}    _id
+    Response Should Contain Message    ${POST_RESPONSE}    message    ${messages}[successRegistration]
     
