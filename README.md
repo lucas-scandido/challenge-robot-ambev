@@ -1,4 +1,4 @@
-# ServeRest - Automated Tests
+# ServeRest - Automated Tests [![Robot Framework Tests](https://github.com/lucas-scandido/challenge-robot-ambev/actions/workflows/ci.yml/badge.svg)](https://github.com/lucas-scandido/challenge-robot-ambev/actions/workflows/ci.yml)
 Test Automation Project for the application **[ServeRest](https://serverest.dev/)** using **Robot Framework** with **Selenium Library**.
 
 # Prerequisites
