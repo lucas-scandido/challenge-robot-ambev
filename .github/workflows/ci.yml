@@ -67,7 +67,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://lucas-scandido.github.io/challenge-robot-ambev/report.html
+      url: https://lucas-scandido.github.io/challenge-robot-ambev/log.html
 
     steps:
       - name: Setup Pages
