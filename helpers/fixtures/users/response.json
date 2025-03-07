@@ -1,0 +1,19 @@
+{
+    "success": {
+        "successRegistration": "Cadastro realizado com sucesso",
+        "successUpdate": "Registro alterado com sucesso",
+        "successDelete": "Registro excluído com sucesso"
+    },
+    "errors": {
+        "emptyName": "nome não pode ficar em branco",
+        "invalidName": "nome deve ser uma string",
+        "emptyEmail": "email não pode ficar em branco",
+        "invalidEmail": "email deve ser um email válido",
+        "emailShouldBeString": "email deve ser uma string",
+        "duplicatedEmail": "Este email já está sendo usado",
+        "emptyPassword": "password não pode ficar em branco",
+        "invalidPassword": "password deve ser uma string",
+        "invalidAdmin": "administrador deve ser 'true' ou 'false'",
+        "noRegistration": "Nenhum registro excluído"
+    }
+}
