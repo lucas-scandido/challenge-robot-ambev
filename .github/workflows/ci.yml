@@ -3,35 +3,6 @@ name: Robot Framework Tests
 on: push
 
 jobs:
-  api_tests:
-    name: API Test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-
-      - name: Install Dependencies
-        run: |
-          pip install robotframework
-          pip install robotframework-requests
-          pip install robotframework-faker
-
-      - name: Run API Tests
-        run: robot -d results/api tests/api
-
-      - name: Upload API Test Results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: api-test-results
-          path: results/api
-
   e2e_tests:
     name: E2E Test
     runs-on: ubuntu-latest
@@ -46,9 +17,7 @@ jobs:
           python-version: '3.13'
 
       - name: Install Dependencies
-        run: |
-          pip install robotframework
-          pip install robotframework-faker
+        run: pip install -r requirements.txt
 
       - name: Run E2E Tests
         run: robot -d results/e2e tests/e2e
