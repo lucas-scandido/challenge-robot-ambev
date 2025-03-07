@@ -73,15 +73,22 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
  
-      - name: Download Artifacts
+      - name: Download API Test Results
         uses: actions/download-artifact@v4
         with: 
-          name: robot-framework-report
+          name: api-test-results
+          path: results/api
+
+      - name: Download E2E Test Results
+        uses: actions/download-artifact@v4
+        with: 
+          name: e2e-test-results
+          path: results/e2e
         
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./
+          path: results
         
       - name: Deploy to Github Pages
         id: deployment
