@@ -84,11 +84,18 @@ jobs:
         with: 
           name: e2e-test-results
           path: logs/e2e
-        
+
+      - name: Install Dependencies
+        run: pip install robotframework 
+
+      - name: Merge Reports
+        run: |
+          rebot --merge logs/api/output.xml logs/e2e/output.xml --output logs/output.xml --report logs/report.html --log logs/log.html
+
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./
+          path: logs/
         
       - name: Deploy to Github Pages
         id: deployment
