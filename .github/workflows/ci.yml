@@ -20,14 +20,14 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run API Tests
-        run: robot --name "Test Results" --outputdir logs/api tests/api/
+        run: robot --name "Test Results" --outputdir logs/ tests/api/
 
       - name: Upload API Test Results
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: api-test-results
-          path: logs/api
+          path: logs/
 
   e2e_tests:
     name: E2E Test
@@ -46,14 +46,14 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run E2E Tests
-        run: robot --name "Test Results" --outputdir logs/e2e -v OPTIONS:"add_argument('--headless')" tests/e2e
+        run: robot --name "Test Results" --outputdir logs/ -v OPTIONS:"add_argument('--headless')" tests/e2e
 
       - name: Upload E2E Test Results
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: e2e-test-results
-          path: logs/e2e
+          path: logs/
           
   deploy:
     name: Deploy Test Results 📊
@@ -91,11 +91,12 @@ jobs:
       - name: Merge Reports
         run: |
           rebot --merge logs/api/output.xml logs/e2e/output.xml --output logs/output.xml --report logs/report.html --log logs/log.html
+          ls -R logs
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: logs/
+          path: ./
         
       - name: Deploy to Github Pages
         id: deployment
