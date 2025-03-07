@@ -2,7 +2,7 @@
 Library     SeleniumLibrary
 Library     String
 
-Resource     ../../resources/e2e_common.resource
+Resource     ../../../resources/e2e/e2e_common.resource
 
 *** Keywords ***
 Input Name

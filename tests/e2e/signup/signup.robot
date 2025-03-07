@@ -4,7 +4,7 @@ Documentation    Test suite to verify a new users registration.
 ...              "administrator" users, displaying a success message when 
 ...              submit the registration.
 
-Resource         ../../../resources/e2e_common.resource
+Resource         ../../../resources/e2e/e2e_common.resource
 
 Test Setup       Start Session
 Test Teardown    Close Session
@@ -22,7 +22,7 @@ Create Common And Admin User
     [Arguments]    ${is_admin}
     
     ${data}        Generate User Data
-    ${name}        Set Variable    ${data}[name]
+    ${name}        Set Variable    ${data}[nome]
     ${email}       Set Variable    ${data}[email]
     ${password}    Set Variable    ${data}[password]
     

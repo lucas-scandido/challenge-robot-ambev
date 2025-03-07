@@ -4,17 +4,14 @@ Documentation    Test suite to verify a invalid a new users registration.
 ...              empty and invalid data and displaying a error message when 
 ...              submit the registration.
 
-Resource         ../../../resources/e2e_common.resource
+Resource         ../../../resources/e2e/e2e_common.resource
 
 Test Setup       Start Session
 Test Teardown    Close Session
 Test Template    Invalid And Empty Registration
 
 *** Variables ***
-${ENDPOINT}         cadastrarusuarios
-${USER_NAME}        Lucas Candido
-${USER_EMAIL}       lucas.scandido@qa.com
-${USER_PASSWORD}    password2025
+${ENDPOINT}           cadastrarusuarios
 
 *** Test Cases ***    NAME            EMAIL            PASSWORD            ALERT
 Empty Both Fields     ${EMPTY}        ${EMPTY}         ${EMPTY}            name, email, password
