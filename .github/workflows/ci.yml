@@ -84,7 +84,7 @@ jobs:
         path: logs/
 
     - name: Merge Report
-      run: rebot --merge logs/api/output.xml logs/e2e/output.xml --output logs/output.xml --report logs/report.html --log logs/log.html
+      run: rebot --merge logs/api/api-test-results/output.xml logs/e2e/e2e-test-results/output.xml
 
     - name: Upload Merge Report
       uses: actions/upload-artifact@v4
