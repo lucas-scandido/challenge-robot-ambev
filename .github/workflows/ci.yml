@@ -20,7 +20,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run API Tests
-        run: robot --name "Test Results" --outputdir logs/api tests/api/
+        run: robot --name "Test Results" --outputdir logs/ tests/api/
 
       - name: Upload API Test Results
         uses: actions/upload-artifact@v4
