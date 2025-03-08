@@ -84,7 +84,7 @@ jobs:
         path: logs/
 
     - name: Merge Report
-      run: rebot --merge logs/api/api-test-results/output.xml logs/e2e/e2e-test-results/output.xml
+      run: rebot --merge logs/api-test-results/output.xml logs/e2e-test-results/output.xml
 
     - name: Upload Merge Report
       uses: actions/upload-artifact@v4
@@ -108,4 +108,4 @@ jobs:
 
     - name: Deploy to Github Pages
       id: deployment
-      uses: actions/deploy-pages@v4       
+      uses: actions/deploy-pages@v4
