@@ -20,14 +20,14 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run API Tests
-        run: robot --name "Test Results" --outputdir logs/ tests/api/
+        run: robot -d logs/api tests/api
 
       - name: Upload API Test Results
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: api-test-results
-          path: logs/
+          path: logs/api
 
   e2e_tests:
     name: E2E Test
@@ -46,14 +46,14 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run E2E Tests
-        run: robot --name "Test Results" -v OPTIONS:"add_argument('--headless')" --outputdir logs/ tests/e2e
+        run: robot -d logs/e2e -v OPTIONS:"add_argument('--headless')" tests/e2e
 
       - name: Upload E2E Test Results
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: e2e-test-results
-          path: logs/
+          path: logs/e2e
           
   deploy:
     name: Deploy Test Results 📊
@@ -70,42 +70,32 @@ jobs:
       url: https://lucas-scandido.github.io/challenge-robot-ambev/log.html
 
     steps:
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.13'
-    
-    - name: Install Dependencies
-      run: pip install robotframework 
-
-    - name: Download Artifacts
-      uses: actions/download-artifact@v4
-      with: 
-        path: logs/
-
-    - name: Merge Report
-      run: rebot --merge logs/api/output.xml logs/e2e/output.xml --output logs/output.xml --report logs/report.html --log logs/log.html
-
-    - name: Upload Merge Report
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: test-results
-        path: ./*.html
-      
-    - name: Setup Pages
-      uses: actions/configure-pages@v5
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
  
-    - name: Download Artifacts
-      uses: actions/download-artifact@v4
-      with: 
-        name: test-results
+      - name: Download API Test Results
+        uses: actions/download-artifact@v4
+        with: 
+          name: api-test-results
+          path: logs/api
 
-    - name: Upload Artifacts
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./
+      - name: Download E2E Test Results
+        uses: actions/download-artifact@v4
+        with: 
+          name: e2e-test-results
+          path: logs/e2e
+
+      - name: Install Dependencies
+        run: pip install robotframework 
+
+      - name: Merge Reports
+        run: rebot --merge logs/api-test-results/output.xml logs/e2e-test-results/output.xml
+
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: logs/
         
-    - name: Deploy to Github Pages
-      id: deployment
-      uses: actions/deploy-pages@v4       
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v4       
