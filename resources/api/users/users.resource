@@ -13,14 +13,13 @@ Create User
     Send POST Request     ${USERS}    ${DATA}    201 
 
 Update User Data
-    [Arguments]    ${name}    ${email}    ${password}    ${is_admin}
-
-    ${body}        Create Dictionary
-    ...            nome=${name}
-    ...            email=${email}
-    ...            password=${password}
-    ...            administrador=${is_admin}
-    RETURN         ${body}
+    [Arguments]     ${name}    ${email}    ${password}    ${is_admin}
+    ${body}=        Create Dictionary
+    ...             nome=${name}
+    ...             email=${email}
+    ...             password=${password}
+    ...             administrador=${is_admin}
+    RETURN          ${body}
 
 Delete Users
     Send DELETE Request    ${USERS}/${POST_RESPONSE}[_id]    200
