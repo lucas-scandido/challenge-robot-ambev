@@ -38,11 +38,11 @@ Generate User Data
     ${password}         FakerLibrary.Password
     ${administrator}    Set Variable    ${is_admin}
     
-    ${data}            Create Dictionary    
-    ...                nome=${name}    
-    ...                email=${random_email}
-    ...                password=${password}
-    ...                administrador=${administrator}
+    ${data}=               Create Dictionary    
+    ...                    nome=${name}    
+    ...                    email=${random_email}
+    ...                    password=${password}
+    ...                    administrador=${administrator}
     Set Global Variable    ${DATA}    ${data}  
     RETURN                 ${DATA}
 

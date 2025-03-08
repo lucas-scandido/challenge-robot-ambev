@@ -39,7 +39,7 @@ Submit Registration
 Alert Success Should Be Displayed
     Wait Until Element Is Visible    ${ALERT}
     Check Element Details            ${SUCCESS_MESSAGE}    Cadastro realizado com sucesso
-    ${alert_success_color} =    Execute Javascript    
+    ${alert_success_color}=    Execute Javascript    
     ...    return window.getComputedStyle(document.querySelector('.alert')).backgroundColor;
     Should Be Equal    ${alert_success_color}    rgb(120, 194, 173)   
 
@@ -52,6 +52,6 @@ Alert Error Should Be
         ${locator}    Set Variable    ${ERROR_MESSAGES.replace('{}', "${alerts}[${error}]")}    
         Check Element Details    ${locator}    ${alerts}[${error}]
     END
-    ${alert_error_color} =    Execute Javascript    
+    ${alert_error_color}=    Execute Javascript    
     ...    return window.getComputedStyle(document.querySelector('.alert')).backgroundColor;
     Should Be Equal    ${alert_error_color}    rgb(243, 150, 154)

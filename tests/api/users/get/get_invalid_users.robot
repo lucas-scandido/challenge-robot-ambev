@@ -22,8 +22,8 @@ Invalid Administrator As A Number    administrador    ${{1}}              admini
 
 *** Keywords ***
 Search Users With Invalid Data
-    [Arguments]    ${key}    ${value}    ${field}    ${expected_message} 
-    ${params}      Create Dictionary    ${key}=${value}
-    ${message}     Get fixture    users    response    errors
+    [Arguments]     ${key}    ${value}    ${field}    ${expected_message} 
+    ${params}=      Create Dictionary    ${key}=${value}
+    ${message}      Get fixture    users    response    errors
     Send GET Request    400    ${USERS}    params=${params}
     Response Should Contain Message    ${GET_RESPONSE}    ${field}    ${message}[${expected_message}]
