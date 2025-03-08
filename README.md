@@ -1,17 +1,17 @@
-# ServeRest - Automated Tests [![Robot Framework Tests](https://github.com/lucas-scandido/challenge-robot-ambev/actions/workflows/ci.yml/badge.svg)](https://github.com/lucas-scandido/challenge-robot-ambev/actions/workflows/ci.yml)
+# ServeRest - Automated Tests 
 Test Automation Project for the application **[ServeRest](https://serverest.dev/)** using **Robot Framework** with **Selenium Library**.
 
+![Repo Size](https://img.shields.io/github/repo-size/lucas-scandido/challenge-robot-ambev?label=size&color=blue) [![Robot Framework Tests](https://github.com/lucas-scandido/challenge-robot-ambev/actions/workflows/ci.yml/badge.svg)](https://github.com/lucas-scandido/challenge-robot-ambev/actions/workflows/ci.yml)
+
 # Prerequisites
-1. **[Python](https://www.python.org/downloads/)** version: `>=3.13.1`.
-2. **[Robot Framework](https://docs.robotframework.org/docs/getting_started/testing#install-robot-framework)** version: `>=7.2`.
-3. **`WebDriver`** version: first, check your browser version and then download the compatible version from the **[Link](https://googlechromelabs.github.io/chrome-for-testing/)**.
+[![Python Version](https://img.shields.io/badge/Python-3.13.1-blue)](https://www.python.org/downloads/) [![Robot Framework Version](https://img.shields.io/badge/Robot%20Framework-7.2-blue)](https://docs.robotframework.org/docs/getting_started/testing#install-robot-framework) [![ChromeDriver](https://img.shields.io/badge/ChromeDriver-115.0-blue)](https://googlechromelabs.github.io/chrome-for-testing/)
 
 📝 On Windows machines, make sure to add [Python ao PATH](https://docs.python.org/3/using/windows.html#the-full-installer) during installation.
 
 # Installation
 **1. Clone the repository:**
 ```
-https://github.com/lucas-scandido/challenge-robot-ambev.git
+git clone https://github.com/lucas-scandido/challenge-robot-ambev.git
 ```
 
 **2. Navigate to the directory:**
